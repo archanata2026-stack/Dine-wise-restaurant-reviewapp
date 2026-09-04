@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Review{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 500px; margin-top: 40px;">
+    <h2>Review {{ restaurant.name }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Submit Review</button>
+    </form>
+</div>
+{% endblock %}

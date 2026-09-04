@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ restaurant.name }}{% endblock %}
+
+{% block content %}
+    <div class="restaurant-card">
+        <div class="restaurant-image">restaurant picture</div>
+        <div class="restaurant-details">
+            <div class="detail-column">
+                <p><strong>{{ restaurant.name }}</strong></p>
+                <p>{{ restaurant.city }}</p>
+                <p>{{ restaurant.address }}</p>
+            </div>
+            <div class="detail-column">
+                <p>{{ restaurant.cuisine }}</p>
+                <p>{{ restaurant.get_food_type_display }}</p>
+            </div>
+            <div class="detail-column">
+                <p>{% if restaurant.has_parking %}Parking Available{% else %}No Parking{% endif %}</p>
+                {% if user.is_authenticated %}
+                <p>
+                    {% if restaurant.average_rating %}
+                        ⭐ <strong>{{ restaurant.average_rating }}/5</strong> overall ({{ restaurant.review_count }} review{{ restaurant.review_count|pluralize }})
+                    {% else %}
+                        No reviews yet — be the first!
+                    {% endif %}
+                </p>
+                    <a href="{% url 'add_review' restaurant.pk %}" class="btn btn-success mb-3">Write a Review</a>
+                {% else %}
+                    <p><a href="{% url 'login' %}">Log in</a> to write a review.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% if restaurant.description %}
+        <p>{{ restaurant.description }}</p>
+    {% endif %}
+
+    <h2>Reviews ({{ reviews.count }})</h2>
+
+    {% for review in reviews %}
+        <div class="restaurant-card">
+            <div class="detail-column">
+                <p><strong>{{ review.user.username }}</strong></p>
+                <p>{{ review.created_at|date:"M d, Y" }}</p>
+            </div>
+            <div class="detail-column">
+                <p>Quality: {{ review.quality_rating }}/5</p>
+                <p>Quantity: {{ review.quantity_rating }}/5</p>
+                <p>Staff: {{ review.staff_rating }}/5</p>
+                <p><strong>Average: {{ review.average_rating }}/5</strong></p>
+            </div>
+            <div class="detail-column">
+                <p>{{ review.comment }}</p>
+            </div>
+        </div>
+    {% empty %}
+        <p>No reviews yet. Be the first to review!</p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}All Restaurants{% endblock %}
+
+{% block content %}
+    <form method="get" class="row g-2 mb-4">
+        <div class="col-md-3">
+            <input type="text" name="city" class="form-control" placeholder="City" value="{{ selected_city }}">
+        </div>
+        <div class="col-md-3">
+            <input type="text" name="cuisine" class="form-control" placeholder="Cuisine" value="{{ selected_cuisine }}">
+        </div>
+        <div class="col-md-3">
+            <select name="food_type" class="form-select">
+                <option value="">Any Food Type</option>
+                {% for value, label in food_type_choices %}
+                    <option value="{{ value }}" {% if value == selected_food_type %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-success w-100">Search</button>
+        </div>
+    </form>
+
+    {% for restaurant in restaurants %}
+    <div class="restaurant-card">
+        {% if restaurant.image %}
+            <img src="{{ restaurant.image.url }}" alt="{{ restaurant.name }}" class="restaurant-image-real">
+        {% else %}
+            <div class="restaurant-image">No Image</div>
+        {% endif %}
+        <div class="restaurant-details">
+                <div class="detail-column">
+                    <p><strong><a href="{% url 'restaurant_detail' restaurant.pk %}">{{ restaurant.name }}</a></strong></p>
+                    <p>{{ restaurant.city }}</p>
+                </div>
+                <div class="detail-column">
+                    <p>{{ restaurant.cuisine }}</p>
+                    <p>{{ restaurant.get_food_type_display }}</p>
+                </div>
+                <div class="detail-column">
+                    <p>{% if restaurant.has_parking %}Parking Available{% else %}No Parking{% endif %}</p>
+                </div>
+                <div class="detail-column">
+                    <p>
+                        {% if restaurant.average_rating %}
+                            ⭐ {{ restaurant.average_rating }}/5 ({{ restaurant.review_count }} review{{ restaurant.review_count|pluralize }})
+                        {% else %}
+                            No reviews yet
+                        {% endif %}
+                    </p>
+                </div>
+        </div>
+    </div>
+    {% empty %}
+        <p>No restaurants found matching your search.</p>
+    {% endfor %}
+{% if page_obj.has_other_pages %}
+    <nav aria-label="Restaurant pagination">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if selected_city %}&city={{ selected_city }}{% endif %}{% if selected_cuisine %}&cuisine={{ selected_cuisine }}{% endif %}{% if selected_food_type %}&food_type={{ selected_food_type }}{% endif %}">Previous</a>
+                </li>
+            {% endif %}
+
+            <li class="page-item disabled">
+                <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+            </li>
+
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if selected_city %}&city={{ selected_city }}{% endif %}{% if selected_cuisine %}&cuisine={{ selected_cuisine }}{% endif %}{% if selected_food_type %}&food_type={{ selected_food_type }}{% endif %}">Next</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}
+{% endblock %}
