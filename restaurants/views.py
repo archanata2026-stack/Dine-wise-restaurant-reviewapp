@@ -7,8 +7,20 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from .forms import ReviewForm,ProfileForm
 from django.core.paginator import Paginator
-
+from django.db.models import Avg, F, FloatField, ExpressionWrapper
 # Create your views here.
+
+import math
+
+def haversine(lat1, lon1, lat2, lon2):
+    R = 6371  # Earth radius in km
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    dphi = p2 - p1
+    dlmb = math.radians(lon2 - lon1)
+    a = math.sin(dphi / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dlmb / 2) ** 2
+    return 2 * R * math.asin(math.sqrt(a))
+
+
 
 class RestaurantListView(View):
     def get(selfself,request):
@@ -23,12 +35,43 @@ class RestaurantListView(View):
         if food_type:
             restaurants = restaurants.filter(food_type=food_type)
 
+        lat = request.GET.get('lat')
+        lng = request.GET.get('lng')
+        radius = request.GET.get('radius')
+
+        if lat and lng:
+            try:
+                ulat, ulng = float(lat), float(lng)
+                max_km = float(radius) if radius else None
+            except ValueError:
+                ulat = ulng = max_km = None
+            if ulat is not None:
+                nearby = []
+                located = restaurants.exclude(latitude__isnull=True).exclude(longitude__isnull=True)
+                for r in located:
+                    d = haversine(ulat, ulng, r.latitude, r.longitude)
+                    if max_km is None or d <= max_km:
+                        r.distance = round(d, 1)
+                        nearby.append(r)
+                nearby.sort(key=lambda r: r.distance)
+                restaurants = nearby
+        elif request.GET.get('sort') == 'rating':
+            restaurants = restaurants.annotate(
+                avg_rating=ExpressionWrapper(
+                    (Avg('reviews__quality_rating') +
+                     Avg('reviews__quantity_rating') +
+                     Avg('reviews__staff_rating')) / 3,
+                    output_field=FloatField()
+                )
+            ).order_by(F('avg_rating').desc(nulls_last=True))
+
         paginator = Paginator(restaurants, 6)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
 
         context = {
-            'restaurants': restaurants,
+            'restaurants': page_obj,
+            'page_obj' : page_obj,
             'cities': Restaurant.objects.values_list('city', flat=True).distinct(),
             'cuisines': Restaurant.objects.values_list('cuisine', flat=True).distinct(),
             'food_type_choices': Restaurant.FOOD_TYPE_CHOICES,
@@ -88,3 +131,9 @@ class EditProfileView(View):
             form.save()
             return redirect('restaurant_list')
         return render(request, 'edit_profile.html', {'form': form})
+
+class CuisineListView(View):
+    def get(self, request):
+        cuisines = (Restaurant.objects.values_list('cuisine', flat=True)
+                    .distinct().order_by('cuisine'))
+        return render(request, 'cuisine_list.html', {'cuisines': cuisines})

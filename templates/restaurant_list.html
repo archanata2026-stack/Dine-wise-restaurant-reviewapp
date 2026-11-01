@@ -3,7 +3,7 @@
 {% block title %}All Restaurants{% endblock %}
 
 {% block content %}
-    <form method="get" class="row g-2 mb-4">
+    <form method="get" class="row g-2 mb-4" id="filter-form">
         <div class="col-md-3">
             <input type="text" name="city" class="form-control" placeholder="City" value="{{ selected_city }}">
         </div>
@@ -20,11 +20,27 @@
         </div>
         <div class="col-md-3">
             <button type="submit" class="btn btn-success w-100">Search</button>
+            <button type="button" class="btn btn-outline-success" id="near-me">Near me</button>
+            <script>
+            document.getElementById('near-me').addEventListener('click', function () {
+                if (!navigator.geolocation) {
+                    alert('Geolocation is not supported by your browser.');
+                    return;
+                }
+                navigator.geolocation.getCurrentPosition(function (pos) {
+                    window.location = "{% url 'restaurant_list' %}?lat=" + pos.coords.latitude +
+                                      "&lng=" + pos.coords.longitude + "&radius=10";
+                }, function () {
+                    alert('Could not get your location. Please allow location access.');
+                });
+            });
+            </script>
         </div>
     </form>
 
     {% for restaurant in restaurants %}
     <div class="restaurant-card">
+        {% if restaurant.distance is not None %}<p>{{ restaurant.distance }} km away</p>{% endif %}
         {% if restaurant.image %}
             <img src="{{ restaurant.image.url }}" alt="{{ restaurant.name }}" class="restaurant-image-real">
         {% else %}

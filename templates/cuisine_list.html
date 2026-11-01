@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Browse by Cuisine{% endblock %}
+{% block content %}
+<h2>Browse by Cuisine</h2>
+<ul class="list-group" style="max-width: 400px;">
+    {% for cuisine in cuisines %}
+        <li class="list-group-item">
+            <a href="{% url 'restaurant_list' %}?cuisine={{ cuisine|urlencode }}">{{ cuisine }}</a>
+        </li>
+    {% empty %}
+        <li class="list-group-item">No cuisines available yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

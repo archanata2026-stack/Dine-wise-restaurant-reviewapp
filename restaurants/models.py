@@ -19,6 +19,8 @@ class Restaurant(models.Model):
     description = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='restaurant_pics/', blank=True, null=True)
+    latitude = models.FloatField(null=True, blank=True)
+    longitude = models.FloatField(null=True, blank=True)
 
     class Meta:
         ordering = ['name']
