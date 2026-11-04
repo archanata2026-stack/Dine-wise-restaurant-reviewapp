@@ -2,7 +2,7 @@ from rest_framework import generics, permissions
 from rest_framework.exceptions import PermissionDenied
 from .models import Restaurant, Review
 from .serializers import RestaurantSerializer, ReviewSerializer
-
+from .events import publish_review_event
 
 class RestaurantListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = RestaurantSerializer
@@ -37,6 +37,8 @@ class ReviewListCreateAPIView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         restaurant = Restaurant.objects.get(pk=self.kwargs['restaurant_pk'])
+        review = serializer.save(user=self.request.user, restaurant=restaurant)
+        publish_review_event(review)
         serializer.save(user=self.request.user, restaurant=restaurant)
 
 

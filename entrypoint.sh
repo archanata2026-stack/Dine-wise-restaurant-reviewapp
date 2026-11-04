@@ -14,5 +14,5 @@ fi
 if ! has_restaurants; then
   (python manage.py import_osm --city Kodungallur || echo "OSM import failed") &
 fi
-
+python manage.py consume_reviews &
 exec gunicorn restaurant_review.wsgi:application --bind 0.0.0.0:8000 --workers 2

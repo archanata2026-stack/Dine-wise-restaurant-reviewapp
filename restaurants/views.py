@@ -8,6 +8,7 @@ from django.utils.decorators import method_decorator
 from .forms import ReviewForm,ProfileForm
 from django.core.paginator import Paginator
 from django.db.models import Avg, F, FloatField, ExpressionWrapper
+from .events import publish_review_event
 # Create your views here.
 
 import math
@@ -116,6 +117,7 @@ class AddReviewView(View):
             review.restaurant = restaurant
             review.user = request.user
             review.save()
+            publish_review_event(review)
             return redirect('restaurant_detail',pk=restaurant.pk)
         return render(request, 'add_review.html', {'restaurant':restaurant,'form':form})
 
