@@ -156,6 +156,8 @@ AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', default='')
 
 if AWS_STORAGE_BUCKET_NAME:
     AWS_S3_REGION_NAME = 'ap-southeast-2'
+    AWS_S3_ENDPOINT_URL = 'https://s3.ap-southeast-2.amazonaws.com'
+    AWS_S3_ADDRESSING_STYLE = 'virtual'
     AWS_S3_SIGNATURE_VERSION = 's3v4'
     AWS_QUERYSTRING_AUTH = True
     AWS_S3_FILE_OVERWRITE = False
