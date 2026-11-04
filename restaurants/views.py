@@ -65,7 +65,7 @@ class RestaurantListView(View):
                 )
             ).order_by(F('avg_rating').desc(nulls_last=True))
 
-        paginator = Paginator(restaurants, 6)
+        paginator = Paginator(restaurants, 12)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
 

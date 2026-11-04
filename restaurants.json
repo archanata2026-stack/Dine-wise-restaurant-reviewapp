@@ -1,0 +1,635 @@
+[
+{
+  "model": "restaurants.restaurant",
+  "pk": 1,
+  "fields": {
+    "name": "Kailasam Vegeterian Cafe",
+    "address": "Thiruvanchikulam Rd, Thiruvanchikkulam, Kodungallur, Kerala 680664",
+    "city": "Kodungallur",
+    "cuisine": "local and chinese",
+    "food_type": "VEG",
+    "has_parking": true,
+    "description": "Excellent vegetarian food at reasonable prices. Neat, but simple ambiance. No luxury. Soothing Hindu devotional songs played in the background. Courteous staff. Enough parking, puddles can be there during the Monsoon. Single toilet, but it's clean. Proximate to Thiruvanchikulam Mahadeva Temple.",
+    "created_on": "2026-08-04T14:10:48.921Z",
+    "image": "restaurant_pics/dosa.avif",
+    "latitude": 10.211052714249723,
+    "longitude": 76.20419484841622
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 2,
+  "fields": {
+    "name": "Waking Life Cafe",
+    "address": "Muziris Waterfront Park, Kottapuram, Kodungallur, Kerala 680667",
+    "city": "Kodungallur",
+    "cuisine": "Pizza",
+    "food_type": "BOTH",
+    "has_parking": true,
+    "description": "Walking Life Cafe is a gem! I tried the Alfredo Chicken and the Honey Cheese manakeesh—both were incredible. The pizza crust is perfect, and their mocktails are so refreshing. Great vibes and even better food. Highly recommend!\"",
+    "created_on": "2026-08-04T14:13:43.815Z",
+    "image": "",
+    "latitude": 10.197906721430503,
+    "longitude": 76.20614583127721
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 3,
+  "fields": {
+    "name": "Shahiris Restaurant",
+    "address": "657X+39Q, Nh Bypass, Padakulam, Kodungallur, Kerala 680664",
+    "city": "Kodungallur",
+    "cuisine": "North Indian restauran",
+    "food_type": "BOTH",
+    "has_parking": true,
+    "description": "A wonderful little spot with a warm, inviting atmosphere. The menu has a great variety, and every dish we ordered was cooked to perfection. It's the perfect place for a relaxed dinner with friends or family",
+    "created_on": "2026-08-04T14:16:20.588Z",
+    "image": "",
+    "latitude": 10.212963658150477,
+    "longitude": 76.19796140108481
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 4,
+  "fields": {
+    "name": "Grills N Kitchen Restaurant",
+    "address": "658X+532, Padakulam, Kodungallur, Kerala 680664",
+    "city": "Kodungallur",
+    "cuisine": "North Indian restaurant",
+    "food_type": "NON_VEG",
+    "has_parking": true,
+    "description": "good place to have food. neat and clean. staff were friendly. tasty food and nice ambience. i tried alfaham, beef fry from here and other things from the 2 other restaurants. there are 3 places in which one serves fried chicken, the other one is a tea shop. all are good to have food.",
+    "created_on": "2026-08-04T14:19:45.983Z",
+    "image": "",
+    "latitude": 10.21596235541812,
+    "longitude": 76.19759662064939
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 6,
+  "fields": {
+    "name": "Arabian Restaurant",
+    "address": "Arabian Restaurant, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.340Z",
+    "image": "",
+    "latitude": 10.1421821,
+    "longitude": 76.1783569
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 7,
+  "fields": {
+    "name": "Chilliout",
+    "address": "Chilliout, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.347Z",
+    "image": "",
+    "latitude": 10.1451533,
+    "longitude": 76.1773271
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 8,
+  "fields": {
+    "name": "Vegetarian Restaurant",
+    "address": "Vegetarian Restaurant, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Indian",
+    "food_type": "VEG",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.354Z",
+    "image": "",
+    "latitude": 10.1512473,
+    "longitude": 76.2228091
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 9,
+  "fields": {
+    "name": "ayyappas",
+    "address": "ayyappas, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.361Z",
+    "image": "",
+    "latitude": 10.1787166,
+    "longitude": 76.2250508
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 10,
+  "fields": {
+    "name": "Madras Cafe",
+    "address": "Madras Cafe, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.368Z",
+    "image": "",
+    "latitude": 10.144452,
+    "longitude": 76.2260789
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 11,
+  "fields": {
+    "name": "Paravur Tourist Home(PTH)",
+    "address": "Paravur Tourist Home(PTH), Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.376Z",
+    "image": "",
+    "latitude": 10.1483787,
+    "longitude": 76.2291965
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 12,
+  "fields": {
+    "name": "Palaaram Restaurant",
+    "address": "Palaaram Restaurant, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.384Z",
+    "image": "",
+    "latitude": 10.1460386,
+    "longitude": 76.2352395
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 13,
+  "fields": {
+    "name": "Le Café",
+    "address": "Le Café, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.394Z",
+    "image": "",
+    "latitude": 10.1388426,
+    "longitude": 76.1795753
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 14,
+  "fields": {
+    "name": "Muziris Kitchen",
+    "address": "Muziris Kitchen, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.405Z",
+    "image": "",
+    "latitude": 10.18628,
+    "longitude": 76.2028149
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 15,
+  "fields": {
+    "name": "Lilliput",
+    "address": "Lilliput, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.416Z",
+    "image": "",
+    "latitude": 10.1410523,
+    "longitude": 76.1791122
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 16,
+  "fields": {
+    "name": "Mums food court & catering",
+    "address": "Annamanada Ashtamichira Road",
+    "city": "Kodungallur",
+    "cuisine": "Arab, Asian",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.428Z",
+    "image": "",
+    "latitude": 10.2387657,
+    "longitude": 76.3267008
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 17,
+  "fields": {
+    "name": "Udupi Hotel",
+    "address": "Udupi Hotel, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.440Z",
+    "image": "",
+    "latitude": 10.1490817,
+    "longitude": 76.2312965
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 18,
+  "fields": {
+    "name": "Kailasam Cafe",
+    "address": "Kailasam Cafe, Thiruvanchikulam",
+    "city": "Thiruvanchikulam",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.453Z",
+    "image": "",
+    "latitude": 10.2103932,
+    "longitude": 76.2042163
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 19,
+  "fields": {
+    "name": "Sukh Sagar",
+    "address": "Sukh Sagar, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.463Z",
+    "image": "",
+    "latitude": 10.1414267,
+    "longitude": 76.2290388
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 20,
+  "fields": {
+    "name": "Prana Restaurant",
+    "address": "Prana Restaurant, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.474Z",
+    "image": "",
+    "latitude": 10.1470784,
+    "longitude": 76.2287536
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 21,
+  "fields": {
+    "name": "achus kitchen",
+    "address": "achus kitchen, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.488Z",
+    "image": "",
+    "latitude": 10.2748315,
+    "longitude": 76.3211916
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 22,
+  "fields": {
+    "name": "Swami's Hotel",
+    "address": "Swami's Hotel, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.499Z",
+    "image": "",
+    "latitude": 10.3498358,
+    "longitude": 76.2063993
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 23,
+  "fields": {
+    "name": "restaurant",
+    "address": "restaurant, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.510Z",
+    "image": "",
+    "latitude": 10.3497113,
+    "longitude": 76.2069549
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 24,
+  "fields": {
+    "name": "Vanitha",
+    "address": "Vanitha, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.518Z",
+    "image": "",
+    "latitude": 10.3471174,
+    "longitude": 76.2071501
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 25,
+  "fields": {
+    "name": "Venus",
+    "address": "Venus, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.527Z",
+    "image": "",
+    "latitude": 10.3470182,
+    "longitude": 76.208067
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 26,
+  "fields": {
+    "name": "The Table Restaurant",
+    "address": "The Table Restaurant, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.536Z",
+    "image": "",
+    "latitude": 10.1069584,
+    "longitude": 76.2031683
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 27,
+  "fields": {
+    "name": "Mezbaan",
+    "address": "Mezbaan, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.546Z",
+    "image": "",
+    "latitude": 10.3156381,
+    "longitude": 76.1468773
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 29,
+  "fields": {
+    "name": "sweet n tasty bakers",
+    "address": "sweet n tasty bakers, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.567Z",
+    "image": "",
+    "latitude": 10.2995793,
+    "longitude": 76.1818909
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 30,
+  "fields": {
+    "name": "Moulavi Chicken Centre",
+    "address": "Moulavi Chicken Centre, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.577Z",
+    "image": "",
+    "latitude": 10.3047983,
+    "longitude": 76.2188332
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 31,
+  "fields": {
+    "name": "Lve7",
+    "address": "Lve7, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.589Z",
+    "image": "",
+    "latitude": 10.3140348,
+    "longitude": 76.2198013
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 32,
+  "fields": {
+    "name": "Kochukka's Cheraman Hotel",
+    "address": "Kochukka's Cheraman Hotel, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.599Z",
+    "image": "",
+    "latitude": 10.2126207,
+    "longitude": 76.2025402
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 33,
+  "fields": {
+    "name": "aroma bakers",
+    "address": "pattamali rd",
+    "city": "Irinjalakuda",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.610Z",
+    "image": "",
+    "latitude": 10.3468087,
+    "longitude": 76.2047322
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 35,
+  "fields": {
+    "name": "pavizham hotel",
+    "address": "pavizham hotel, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.632Z",
+    "image": "",
+    "latitude": 10.3537899,
+    "longitude": 76.2173689
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 36,
+  "fields": {
+    "name": "relax restaurant",
+    "address": "relax restaurant, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.642Z",
+    "image": "",
+    "latitude": 10.353273,
+    "longitude": 76.2178433
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 37,
+  "fields": {
+    "name": "bait al mandi",
+    "address": "bait al mandi, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.653Z",
+    "image": "",
+    "latitude": 10.3437576,
+    "longitude": 76.1356368
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 38,
+  "fields": {
+    "name": "Ellikal suresh",
+    "address": "Ellikal suresh, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.663Z",
+    "image": "",
+    "latitude": 10.3645444,
+    "longitude": 76.2213919
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 39,
+  "fields": {
+    "name": "o2 caters Rameez",
+    "address": "o2 caters Rameez, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.673Z",
+    "image": "",
+    "latitude": 10.3214499,
+    "longitude": 76.145049
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 41,
+  "fields": {
+    "name": "Shebin Manjaly's Biriyani",
+    "address": "Shebin Manjaly's Biriyani, Kodungallur",
+    "city": "Kodungallur",
+    "cuisine": "Not specified",
+    "food_type": "BOTH",
+    "has_parking": false,
+    "description": "",
+    "created_on": "2026-11-03T13:23:21.694Z",
+    "image": "",
+    "latitude": 10.1499163,
+    "longitude": 76.2668719
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 42,
+  "fields": {
+    "name": 
