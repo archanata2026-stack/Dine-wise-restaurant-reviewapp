@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Search | DineWise{% endblock %}
+{% block content %}
+<form method="get" class="row g-2 mb-4">
+  <div class="col-md-8"><input type="text" name="q" id="q" class="form-control" placeholder="Search by name, cuisine or city" value="{{ q }}"></div>
+  <div class="col-md-2"><button class="btn btn-success w-100">Search</button></div>
+  <div class="col-md-2"><button type="button" class="btn btn-outline-success w-100" id="near-search">Near me</button></div>
+</form>
+{% if error %}<p>{{ error }}</p>{% endif %}
+{% for restaurant in restaurants %}
+  <div class="restaurant-card">
+    <div class="restaurant-details">
+      <div class="detail-column">
+        <p><strong><a href="{% url 'restaurant_detail' restaurant.pk %}">{{ restaurant.name }}</a></strong></p>
+        <p>{{ restaurant.city }}</p>
+      </div>
+      <div class="detail-column">
+        <p>{{ restaurant.cuisine }}</p>
+        {% if restaurant.distance is not None %}<p>{{ restaurant.distance }} km away</p>{% endif %}
+      </div>
+    </div>
+  </div>
+{% empty %}
+  {% if q and not error %}<p>No results found.</p>{% endif %}
+{% endfor %}
+<script>
+document.getElementById('near-search').addEventListener('click', function () {
+  var q = encodeURIComponent(document.getElementById('q').value);
+  if (!navigator.geolocation) { alert('Geolocation is not supported.'); return; }
+  navigator.geolocation.getCurrentPosition(function (p) {
+    window.location = '{% url "search" %}?q=' + q + '&lat=' + p.coords.latitude + '&lng=' + p.coords.longitude;
+  }, function () { alert('Please allow location access.'); });
+});
+</script>
+{% endblock %}

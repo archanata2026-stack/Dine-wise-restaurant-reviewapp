@@ -9,6 +9,10 @@ from .forms import ReviewForm,ProfileForm
 from django.core.paginator import Paginator
 from django.db.models import Avg, F, FloatField, ExpressionWrapper
 from .events import publish_review_event
+import logging
+from django.core.cache import cache
+from . import search as os_search
+logger = logging.getLogger(__name__)
 # Create your views here.
 
 import math
@@ -134,8 +138,35 @@ class EditProfileView(View):
             return redirect('restaurant_list')
         return render(request, 'edit_profile.html', {'form': form})
 
+def get_cuisines():
+    return list(Restaurant.objects.values_list('cuisine', flat=True).distinct().order_by('cuisine'))
+
+
 class CuisineListView(View):
     def get(self, request):
-        cuisines = (Restaurant.objects.values_list('cuisine', flat=True)
-                    .distinct().order_by('cuisine'))
+        try:
+            cuisines = cache.get_or_set('cuisine_list', get_cuisines, 300)
+        except Exception:
+            logger.warning('Redis unavailable, reading cuisines from the database')
+            cuisines = get_cuisines()
         return render(request, 'cuisine_list.html', {'cuisines': cuisines})
+
+
+class SearchView(View):
+    def get(self, request):
+        q = request.GET.get('q', '').strip()
+        results, error = [], None
+        if q:
+            try:
+                lat, lng = request.GET.get('lat'), request.GET.get('lng')
+                hits = os_search.search(q, float(lat) if lat else None, float(lng) if lng else None)
+                found = Restaurant.objects.in_bulk([i for i, _ in hits])
+                for i, dist in hits:
+                    r = found.get(i)
+                    if r:
+                        r.distance = round(dist, 1) if dist is not None else None
+                        results.append(r)
+            except Exception:
+                logger.exception('Search failed')
+                error = 'Search is temporarily unavailable.'
+        return render(request, 'search.html', {'q': q, 'restaurants': results, 'error': error})

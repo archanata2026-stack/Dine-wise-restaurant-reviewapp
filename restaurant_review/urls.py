@@ -26,6 +26,7 @@ urlpatterns = [
     path('api/', include('restaurants.api_urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('', include('restaurants.urls')),
+
 ]
 
 if settings.DEBUG:

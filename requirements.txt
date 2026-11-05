@@ -8,3 +8,6 @@ tzdata==2026.3
 whitenoise==6.12.0
 boto3
 django-storages
+redis
+opensearch-py
+requests

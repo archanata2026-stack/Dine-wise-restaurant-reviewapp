@@ -165,3 +165,8 @@ if AWS_STORAGE_BUCKET_NAME:
         'default': {'BACKEND': 'storages.backends.s3.S3Storage'},
         'staticfiles': {'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage'},
     }
+
+
+REDIS_URL = config('REDIS_URL', default='')
+if REDIS_URL:
+    CACHES = {'default': {'BACKEND': 'django.core.cache.backends.redis.RedisCache', 'LOCATION': REDIS_URL}}
